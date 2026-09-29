@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOG-PAGE</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <h1>Blog-Page</h1>
+
+    <% for (let blog of blogs) { %>
+
+        <div class="blog">
+
+            <h3 class="user">@ <%= blog.username %></h3>
+
+            <h4 class="blog">
+                <%= blog.blog %>
+            </h4>
+
+            <br>
+
+            <a href="/blogs/<%= blog.id %>">
+                See in details
+            </a>
+
+            <a href="/blog/<%= blog.id %>/edit">
+                Edit
+            </a>
+
+            <form method="POST" action="/blogs/<%= blog.id %>?_method=DELETE">
+                <button>Delete post</button>
+            </form>
+
+        </div>
+
+    <% } %>
+
+    <br>
+
+    <a href="/blog/new">
+        Create New Blog
+    </a>
+
+</body>
+</html>
